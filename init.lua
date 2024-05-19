@@ -14,6 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	import = "trowel.plugins",
+        spec  = "trowel.plugins",
 	change_detection = { notify = false }
 })

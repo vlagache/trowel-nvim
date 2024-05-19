@@ -4,7 +4,7 @@ opt.number = true
 opt.cursorline = true
 opt.cursorlineopt = "number"
 
-opt.clipboard = "unnamedplus"
+-- opt.clipboard = "unnamedplus"
 
 opt.smartcase = true
 opt.ignorecase = true
