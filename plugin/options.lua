@@ -1,10 +1,11 @@
+
 local opt = vim.opt
 
 opt.number = true
 opt.cursorline = true
 opt.cursorlineopt = "number"
 
--- opt.clipboard = "unnamedplus"
+opt.clipboard = "unnamedplus"
 
 opt.smartcase = true
 opt.ignorecase = true
@@ -20,3 +21,5 @@ opt.termguicolors = true
 opt.equalalways = true
 opt.splitright = true
 opt.eadirection = "both"
+
+opt.updatetime = 250

@@ -75,7 +75,7 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(args)
                     local opts = { buffer = args.buf }
-                    vim.keymap.set({ "n", "v" }, "<leader>ff", vim.lsp.buf.format, opts)
+                    vim.keymap.set({ "n", "v" }, "<leader>fo", vim.lsp.buf.format, opts)
                 end
             })
         end
