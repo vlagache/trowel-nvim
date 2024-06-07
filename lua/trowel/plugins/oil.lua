@@ -1,8 +1,10 @@
+local remap = require("trowel.utils").remap
+
 return {
     {
         "stevearc/oil.nvim",
         opts = {},
-        depenencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("oil").setup {
                 view_options = {
@@ -10,7 +12,7 @@ return {
                 },
             }
             -- Open parent directory in current window
-            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+            remap("n", "-", "<CMD>Oil<CR>", "Open parent directory")
         end
     }
 }

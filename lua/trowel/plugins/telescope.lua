@@ -1,3 +1,5 @@
+local remap = require("trowel.utils").remap
+
 return {
     {
         'nvim-telescope/telescope.nvim',
@@ -10,12 +12,12 @@ return {
             require('telescope').setup({})
 
             local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-            vim.keymap.set('n', '<leader>cs', builtin.colorscheme, {})
-            vim.keymap.set('n', '<leader>tgc', builtin.git_commits, {})
+            remap('n', '<leader>ff', builtin.find_files, 'telescope find files')
+            remap('n', '<leader>fg', builtin.live_grep, 'telescope find grep')
+            remap('n', '<leader>fb', builtin.buffers, 'telescope buffers')
+            remap('n', '<leader>fh', builtin.help_tags, 'telescope help tags')
+            remap('n', '<leader>cs', builtin.colorscheme, 'telescope colorscheme')
+            remap('n', '<leader>tgb', builtin.git_branches, 'telescope git branches')
         end
     },
     {

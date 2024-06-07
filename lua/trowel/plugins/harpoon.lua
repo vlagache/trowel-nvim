@@ -1,3 +1,5 @@
+local remap = require("trowel.utils").remap
+
 return {
     {
         "ThePrimeagen/harpoon",
@@ -26,18 +28,18 @@ return {
                 }):find()
             end
 
-            vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-            vim.keymap.set("n", "<leader>r", function() harpoon:list():remove() end)
-            vim.keymap.set("n", "<leader>l", function() toggle_telescope(harpoon:list()) end)
+            remap("n", "<leader>a", function() harpoon:list():add() end, "add file to harpoon")
+            remap("n", "<leader>r", function() harpoon:list():remove() end, "remove file to harpoon")
+            remap("n", "<leader>l", function() toggle_telescope(harpoon:list()) end, "harpoon list")
 
-            vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
-            vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
-            vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
-            vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+            remap("n", "<leader>1", function() harpoon:list():select(1) end, "access to harpoon file 1")
+            remap("n", "<leader>2", function() harpoon:list():select(2) end, "access to harpoon file 2")
+            remap("n", "<leader>3", function() harpoon:list():select(3) end, "access to harpoon file 3")
+            remap("n", "<leader>4", function() harpoon:list():select(4) end, "access to harpoon file 4")
 
             -- Toggle previous & next buffers stored within Harpoon list
-            vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end)
-            vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end)
+            remap("n", "<C-p>", function() harpoon:list():prev() end, "access to previous harpoon file")
+            remap("n", "<C-n>", function() harpoon:list():next() end, "access to next harpoon file")
         end,
     }
 }

@@ -1,3 +1,4 @@
+local remap = require("trowel.utils").remap
 return {
     {
         "VonHeikemen/lsp-zero.nvim",
@@ -75,7 +76,7 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(args)
                     local opts = { buffer = args.buf }
-                    vim.keymap.set({ "n", "v" }, "<leader>fo", vim.lsp.buf.format, opts)
+                    remap({ "n", "v" }, "<leader>fo", vim.lsp.buf.format, "lsp format file", opts)
                 end
             })
         end
