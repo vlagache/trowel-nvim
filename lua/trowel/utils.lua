@@ -16,4 +16,16 @@ function M.remap(mode, shortcut, command, description, opts)
     vim.keymap.set(mode, shortcut, command, options)
 end
 
+-- Function to determine the Python interpreter path
+function M.pythonPath()
+    local cwd = vim.fn.getcwd()
+    if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
+        return cwd .. '/venv/bin/python'
+    elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
+        return cwd .. '/.venv/bin/python'
+    else
+        return '/usr/bin/python'
+    end
+end
+
 return M

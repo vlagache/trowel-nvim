@@ -24,3 +24,5 @@ opt.eadirection = "both"
 opt.updatetime = 250
 
 opt.fillchars = opt.fillchars + 'diff: '
+
+opt.cmdheight = 0

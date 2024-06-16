@@ -21,7 +21,6 @@ return {
             lsp_zero.on_attach(function(client, bufnr)
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
-
             lsp_zero.set_sign_icons({
                 error = "",
                 warn = "",
@@ -33,6 +32,7 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
+                    "pyright",
                 },
                 handlers = {
                     -- default handler, apply to every language server without a custom handler
@@ -53,18 +53,27 @@ return {
                         })
                     end,
 
+                    -- Python
+                    pyright = function()
+                        lsp_config.pyright.setup({})
+                    end
                 }
             })
 
             -- auto-completion configuration
             cmp.setup({
                 sources = {
-                    { name = "nvim_lsp" }
+                    { name = "nvim_lsp", group_index = 2 },
+                    -- { name = "copilot",  group_index = 2 },
                 },
                 formatting = {
                     format = lsp_kind.cmp_format({
                         mode = "symbol_text",
                         max_width = 50,
+                        -- symbol_map = {
+                        --     Copilot = "",
+                        -- }
+
                     })
                 },
                 mapping = cmp.mapping.preset.insert({
