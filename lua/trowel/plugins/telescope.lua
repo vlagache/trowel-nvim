@@ -1,30 +1,27 @@
-local remap = require("trowel.utils").remap
+local default_config = {
+    keys = {
+        { "<leader>ff",  require("telescope.builtin").find_files,   mode = "n", desc = "telescope find files" },
+        { "<leader>fg",  require("telescope.builtin").live_grep,    mode = "n", desc = "telescope find grep" },
+        { "<leader>fb",  require("telescope.builtin").buffers,      mode = "n", desc = "telescope buffers" },
+        { "<leader>fh",  require("telescope.builtin").help_tags,    mode = "n", desc = "telescope help tags" },
+        { "<leader>cs",  require("telescope.builtin").colorscheme,  mode = "n", desc = "telescope colorscheme" },
+        { "<leader>tgb", require("telescope.builtin").git_branches, mode = "n", desc = "telescope git branches" },
+    },
+}
 
 return {
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.6',
-        cmd = "Telescope",
         dependencies = {
             'nvim-lua/plenary.nvim',
+            "nvim-telescope/telescope-frecency.nvim",
             { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font }
         },
+        keys = default_config.keys,
         config = function()
             require('telescope').setup({})
-
-            local builtin = require('telescope.builtin')
-            remap('n', '<leader>ff', builtin.find_files, 'telescope find files')
-            remap('n', '<leader>fg', builtin.live_grep, 'telescope find grep')
-            remap('n', '<leader>fb', builtin.buffers, 'telescope buffers')
-            remap('n', '<leader>fh', builtin.help_tags, 'telescope help tags')
-            remap('n', '<leader>cs', builtin.colorscheme, 'telescope colorscheme')
-            remap('n', '<leader>tgb', builtin.git_branches, 'telescope git branches')
+            require("telescope").load_extension "frecency"
         end
     },
-    {
-        "nvim-telescope/telescope-frecency.nvim",
-        config = function()
-            require("telescope").load_extension "frecency"
-        end,
-    }
 }

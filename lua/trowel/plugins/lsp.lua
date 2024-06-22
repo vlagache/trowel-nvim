@@ -3,20 +3,64 @@ return {
     {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x",
+        lazy = true,
+        config = false,
+        init = function()
+            vim.g.lsp_zero_extend_cmp = 0
+            vim.g.lsp_zero_extend_lspconfig = 0
+        end,
+    },
+    {
+        "williamboman/mason.nvim",
+        lazy = true,
+        config = true,
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
         dependencies = {
-            "neovim/nvim-lspconfig",
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/nvim-cmp",
-            "hrsh7th/cmp-nvim-lsp",
             "L3MON4D3/LuaSnip",
             "onsails/lspkind.nvim",
         },
         config = function()
             local lsp_zero = require("lsp-zero")
-            local lsp_config = require("lspconfig")
             local cmp = require("cmp")
             local lsp_kind = require("lspkind")
+            lsp_zero.extend_cmp()
+            -- auto-completion configuration
+            cmp.setup({
+                sources = {
+                    { name = "nvim_lsp", group_index = 2 },
+                    -- { name = "copilot",  group_index = 2 },
+                },
+                formatting = {
+                    format = lsp_kind.cmp_format({
+                        mode = "symbol_text",
+                        max_width = 50,
+                        -- symbol_map = {
+                        --     Copilot = "",
+                        -- }
+
+                    })
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ['<Cr>'] = cmp.mapping.confirm({ select = true })
+                })
+            })
+        end
+    },
+    {
+        "neovim/nvim-lspconfig",
+        cmd = { "LspInfo", "LspInstall", "LspStart" },
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "williamboman/mason-lspconfig.nvim" },
+        },
+        config = function()
+            local lsp_zero = require("lsp-zero")
+            local lsp_config = require("lspconfig")
+            lsp_zero.extend_lspconfig()
 
             lsp_zero.on_attach(function(client, bufnr)
                 lsp_zero.default_keymaps({ buffer = bufnr })
@@ -27,7 +71,6 @@ return {
                 hint = "",
                 info = "",
             })
-
             require("mason").setup({})
             require("mason-lspconfig").setup({
                 ensure_installed = {
@@ -58,27 +101,6 @@ return {
                         lsp_config.pyright.setup({})
                     end
                 }
-            })
-
-            -- auto-completion configuration
-            cmp.setup({
-                sources = {
-                    { name = "nvim_lsp", group_index = 2 },
-                    -- { name = "copilot",  group_index = 2 },
-                },
-                formatting = {
-                    format = lsp_kind.cmp_format({
-                        mode = "symbol_text",
-                        max_width = 50,
-                        -- symbol_map = {
-                        --     Copilot = "",
-                        -- }
-
-                    })
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ['<Cr>'] = cmp.mapping.confirm({ select = true })
-                })
             })
 
             -- keymaps

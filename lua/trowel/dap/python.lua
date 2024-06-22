@@ -1,5 +1,6 @@
 local M = {}
 
+-- Path to the python interpreter installed by mason
 local python_debugpy_path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 
 function M.setup()
