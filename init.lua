@@ -2,7 +2,7 @@ local dap_config = require("trowel.dap.config")
 
 vim.g.mapleader = " "
 
--- DAP config
+-- dap config 
 dap_config.active_dap("python", true)
 
 

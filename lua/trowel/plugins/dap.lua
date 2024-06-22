@@ -12,6 +12,9 @@ return {
             "jay-babu/mason-nvim-dap.nvim",
             { "mfussenegger/nvim-dap-python", enabled = dap_config.dap_activated.python },
         },
+        keys = {
+            "<leader>b",
+        },
         config = function()
             local dap = require("dap")
             local ui = require("dapui")
@@ -20,7 +23,9 @@ return {
             require("nvim-dap-virtual-text").setup()
             require("mason").setup()
 
-            require("mason-nvim-dap").setup(dap_config.mason_ensure_installed)
+            require("mason-nvim-dap").setup({
+                ensure_installed = dap_config.mason_ensure_installed,
+            })
 
             if dap_config.dap_activated.python then
                 local dap_python = require("trowel.dap.python")

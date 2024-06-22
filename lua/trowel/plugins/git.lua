@@ -1,5 +1,15 @@
 local remap = require("trowel.utils").remap
 
+local default_config = {
+    neogit = {
+        keys = {
+            { "<leader>ng",  "<CMD>Neogit<CR>",                mode = "n", desc = "open neogit" },
+            { "<leader>dv",  "<CMD>DiffviewOpen<CR>",          mode = "n", desc = "open diffview" },
+            { "<leader>dfh", "<CMD>DiffviewFileHistory %<CR>", mode = "n", desc = "open diffview file history" },
+        },
+    },
+}
+
 return {
     {
         "NeogitOrg/neogit",
@@ -8,19 +18,16 @@ return {
             "sindrets/diffview.nvim",        -- optional - Diff integration
             "nvim-telescope/telescope.nvim", -- optional
         },
-        event = "VeryLazy",
+        keys = default_config.neogit.keys,
         config = function()
             require("neogit").setup({})
-            remap("n", "<leader>ng", "<CMD>Neogit<CR>", "open neogit")
-            remap("n", "<leader>dv", "<CMD>DiffviewOpen<CR>", "open diffview")
-            remap("n", "<leader>dfh", "<CMD>DiffviewFileHistory %<CR>", "open diffview file history")
         end
     },
     {
         'akinsho/git-conflict.nvim',
         version = "*",
         config = true,
-        event = "BufRead",
+        event = "VeryLazy",
     },
     {
         "lewis6991/gitsigns.nvim",
