@@ -1,0 +1,79 @@
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug"]
+assignees:
+  - vlagache
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please take the time to fill in a bug report to help me improve this Neovim configuration.
+  - type: textarea
+    id: describe-bug
+    attributes: 
+      label: Describe the bug
+      description: A clear and concise description of what the bug is
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: textarea
+    id: to-reproduce
+    attributes: 
+      label: To reproduce
+      description: Steps to reproduce the behavior
+      value: |
+        1. Go to ...
+        2. Click on ...
+        3. Scroll down to ...
+        4. See errors
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes: 
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes: 
+      label: Screenshots
+      description: add screenshots to help to explain your problem
+      placeholder: After a screenshot, simply paste the content into this text box
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Please complete the following information:
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating System
+      placeholder: ex. Linux Manjaro
+    validations:
+      required: true
+  - type: input
+    id: terminal
+    attributes:
+      label: Terminal
+      placeholder: ex. Alacritty
+    validations:
+      required: true
+  - type: input
+    id: version-neovim
+    attributes:
+      label: Version of Neovim
+      placeholder: ex. v0.0.10
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes: 
+      label: Additional context
+      description: Add any other context about the problem here
+    validations:
+      required: false

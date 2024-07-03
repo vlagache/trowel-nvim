@@ -6,7 +6,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Neovim-0.10.0-f5a97f?style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=1E1E2E" alt="Neovim version badge">
+  <img src="https://img.shields.io/github/issues/vlagache/trowel-nvim?style=for-the-badge&logo=github&logoColor=D9E0EE&labelColor=1E1E2E&color=8bd5ca" alt="GitHub issues badge">
+  <img src="https://img.shields.io/github/last-commit/vlagache/trowel-nvim/master?style=for-the-badge&logo=github&logoColor=D9E0EE&labelColor=1E1E2E&color=f0c6c6" alt="Last commit badge">
 </p>
+
 
 ---
 
