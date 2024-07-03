@@ -10,7 +10,7 @@ return {
                 suggestion = {
                     auto_trigger = true,
                     keymap = {
-                        accept = "<Tab>",
+                        accept = "<leader><Tab>",
                         reject = "<ESC>",
                         next = "<C-j>",
                         prev = "<C-k>",
@@ -28,4 +28,3 @@ return {
     --     end
     -- }
 }
-
