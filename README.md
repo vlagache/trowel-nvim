@@ -14,6 +14,8 @@
 
 Ce repository est lié à cette series d'articles sur Medium : [Comment configurer et utiliser Neovim à partir de zéro](https://medium.com/@vlagache/comment-configurer-et-utiliser-neovim-%C3%A0-partir-de-z%C3%A9ro-a9111ee91d97)
 
+**Mettre un lien vers le pdf**
+
 ## Articles et commits associés
 
 - **Plugin Manager**  
@@ -27,7 +29,16 @@ Ce repository est lié à cette series d'articles sur Medium : [Comment configur
 
 - **Navigation**  
   Lire l'article : [Navigation](https://medium.com/@vlagache/comment-configurer-et-utiliser-neovim-%C3%A0-partir-de-z%C3%A9ro-0a85c06bdbe2)  
-  Commit associé : [`a24a8c6`](https://github.com/vlagache/trowel-nvim/commit/a24a8c6041ff64110b0fb925943b8f7c1fa20b1f)
+  Commit associé : [`024dc64`](https://github.com/vlagache/trowel-nvim/commit/024dc64fb15ef6ce7b7781d88c2260245dcc2447)
+
+- **Git**  
+  Lire l'article : [Git](https://medium.com/@vlagache/comment-configurer-et-utiliser-neovim-%C3%A0-partir-de-z%C3%A9ro-204a97b1192f)  
+  Commit associé : [`a52ad2a`](https://github.com/vlagache/trowel-nvim/commit/a52ad2aa4bfb4b4799529d2991964a397ba21242)
+
+- **Debug, UX, Copilot et lazy loading**  
+  Lire l'article : [Debug, UX, Copilot et lazy loading](https://medium.com/@vlagache/comment-configurer-et-utiliser-neovim-%C3%A0-partir-de-z%C3%A9ro-1eb0eec55a23)  
+  Commits associés : [`ba95c66`](https://github.com/vlagache/trowel-nvim/commit/ba95c6658c2a4c57149aa984dab25656d451da0d)(Debug, UX, Copilot) + [`2d6a1f`](https://github.com/vlagache/trowel-nvim/commit/2d6a1f62bd10bd88604cf23c1b3d34df8e16bc1d)(lazy loading)
+
 
 ---
 
